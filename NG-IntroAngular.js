@@ -1,3 +1,5 @@
+// Part 1
+
 angular.module('angularIntro',[]);
 
 angular.module('angularIntro').controller('alpha', ['$scope', alphaCtrl] );
@@ -16,16 +18,33 @@ function alphaCtrl($scope) {
     }
 }
 
-angular.module('angularIntro').controller('beta', [betaCtrl] );
+// Part 2
+                                            
+angular.module('angularIntro').controller('betaCtrl', [betaCtrl] ); // the function betaCtrl will
+                                                                    // pass 'betaCtrl' it's argument. 
 
 function betaCtrl() {
-    var bCtrl = this;
+    var beta = this;
    
-    bCtrl.parOne = "This is text in paragraph one.";
+    beta.pOne = "This is text in paragraph one.";
     
-    bCtrl.hover = function() {                           //declares a function named 'hover'
-        bCtrl.paragraphColor = { 'color': 'pink' };     //declares a property named paragraphColor with a value of an object -'color:pink'.
+    beta.hover = function() {                           //declares a function named 'hover'
+        beta.paragraphColor = { 'color': 'pink' };     //declares a property named paragraphColor with a value of an object -'color:pink'.
     };
     
-    bCtrl.exclaim = '!'
+    beta.exclaim = '!'
+    
+     beta.confirm = function() {
+        var reply = confirm("Are you sure?");
+        if (reply === false) {
+            event.preventDefault();
+            angular.element(event.target).remove();
+        }
+    }
+// Part 3
+    
+
 }
+
+
+
