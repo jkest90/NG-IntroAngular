@@ -1,15 +1,38 @@
 <!DOCTYPE HTML>
 <html ng-app="angularIntro">
-    <head>
-        <title> Intro to Angular Assignment</title>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
-        <script type="text/javascript" src="NG-IntroAngular.js"></script>
-    </head>
-    <body ng-controller="alpha">
+
+<head>
+    <title> Intro to Angular Assignment</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
+    <script type="text/javascript" src="NG-IntroAngular.js"></script>
+    <link rel="css/stylesheet" href="NG-IntroAngular.css">
+</head>
+    
+<body>
+
+  <div ng-controller="alpha">                                         <!-- Part 1 -->
+    <h1> {{ greeting }}</h1>
+    <button ng-click="buttonClick()">And muttered underneath his breath: </button>
+    <h3> {{ subGreeting }} </h3>
+  </div>
+                                                                      <!-- Part 2 -->         
+  <div ng-controller="beta as bCtrl">           <!--'beta' is name of controller + 'as' -->
+    <h1>The Ballad of Frankie Lee... {{bCtrl.exclaim}}  </h1>      <!-- + 'bCtrl' object('this' function betaCtrl)' -->
+    <h3>& Judas Priest {{bCtrl.exclaim}}</h3>
+    <h5>"...they were the best of friends." {{bCtrl.exclaim}}</h5>
+           
+    <p ng-mouseover="bCtrl.hover()" ng-style ="bCtrl.paragraphColor" >  {{bCtrl.parOne}}</p>
+    <p>
+        <a href="http://www.bobdylan.com">Bob Dylan</a>
+        <br><a href="http://www.jerrygarcia.com">"Been All around this World"</a><br>
+    </p>
         
-        <h1> {{ greeting }}</h1>
-        <button ng-click="buttonClick()">And muttered underneath his breath: </button>
-        <h3> {{ subGreeting }} </h3>
-    </body>
+  </div>
+
+</body>
     
 </html>
+
+
+<!--<p ng-mouseover="bCtrl.hover()" ng-style ="bCtrl.paragraphColor" n-repeat="parOne in bCtrl.myParOne track by $index"> {{parOne}}</p>
+            <p> -->
